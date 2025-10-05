@@ -88,13 +88,34 @@ class SerieAManager {
     }
 
     static populateTable(tableBodyId, data, type) {
+        console.log(`=== POPULANDO TABELA ${tableBodyId} ===`);
+        console.log('Tipo:', type);
+        console.log('Dados:', data);
+        
         const tableBody = document.getElementById(tableBodyId);
-        if (!tableBody) return;
+        console.log('Elemento encontrado:', tableBody);
+        
+        if (!tableBody) {
+            console.log(`❌ Elemento ${tableBodyId} não encontrado`);
+            return;
+        }
 
-        // Converter objeto em array e ordenar por probabilidade
-        const sortedData = Object.entries(data)
-            .map(([time, probabilidade]) => ({ time, probabilidade }))
-            .sort((a, b) => b.probabilidade - a.probabilidade);
+        // Para probabilidades, ordenar por probabilidade (maior para menor)
+        // Para classificação, manter ordem da classificação oficial
+        let sortedData;
+        
+        if (type === 'titulo' || type === 'libertadores' || type === 'rebaixamento') {
+            // Ordenar por probabilidade (maior para menor)
+            sortedData = Object.entries(data)
+                .map(([time, probabilidade]) => ({ time, probabilidade }))
+                .sort((a, b) => b.probabilidade - a.probabilidade);
+        } else {
+            // Para outros tipos, manter ordem original
+            sortedData = Object.entries(data)
+                .map(([time, probabilidade]) => ({ time, probabilidade }));
+        }
+
+        console.log('Dados ordenados:', sortedData);
 
         tableBody.innerHTML = '';
         
@@ -115,6 +136,8 @@ class SerieAManager {
             
             tableBody.appendChild(row);
         });
+        
+        console.log(`✅ Tabela ${tableBodyId} populada com ${sortedData.length} itens`);
     }
 
     static populateClassificationTable(tableBodyId, classificacao) {
