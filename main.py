@@ -98,47 +98,13 @@ def executar_script(nome_script, descricao):
     """Executa um script Python e captura o output"""
     log_message(f"[EXECUTANDO] {descricao}", Colors.BLUE)
     
-    script_path = SCRIPTS_DIR / nome_script
+    # Scripts agora estão no arquivo sistema_completo.py
+    if nome_script.endswith('.py'):
+        # Executa o sistema completo unificado
+        return executar_sistema_completo()
     
-    if not script_path.exists():
-        log_message(f"[ERRO] Script nao encontrado: {script_path}", Colors.RED)
-        return False
-    
-    try:
-        # Executar script
-        inicio = time.time()
-        # Configurar encoding para Windows
-        encoding = 'utf-8' if os.name != 'nt' else 'cp1252'
-        
-        resultado = subprocess.run(
-            [sys.executable, str(script_path)],
-            cwd=".",  # Executar da raiz do projeto
-            capture_output=True,
-            text=True,
-            encoding=encoding,
-            errors='ignore'
-        )
-        fim = time.time()
-        duracao = fim - inicio
-        
-        if resultado.returncode == 0:
-            log_message(f"[OK] Concluido: {descricao} ({duracao:.1f}s)", Colors.GREEN)
-            
-            # Salvar output do script no log
-            if resultado.stdout:
-                with open(LOG_FILE, "a", encoding="utf-8") as f:
-                    f.write(f"\n--- OUTPUT {descricao} ---\n")
-                    f.write(resultado.stdout)
-                    f.write("\n--- FIM OUTPUT ---\n\n")
-            
-            return True
-        else:
-            log_message(f"[ERRO] Falha em {descricao}: {resultado.stderr}", Colors.RED)
-            return False
-            
-    except Exception as e:
-        log_message(f"[EXCECAO] Erro em {descricao}: {str(e)}", Colors.RED)
-        return False
+    log_message(f"[ERRO] Script nao encontrado: {nome_script}", Colors.RED)
+    return False
 
 def verificar_arquivos_gerados():
     """Verifica se os arquivos principais foram gerados"""

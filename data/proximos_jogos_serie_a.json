@@ -742,9 +742,9 @@
       "strDescriptionEN": "",
       "strHomeTeam": "São Paulo",
       "strAwayTeam": "Palmeiras",
-      "intHomeScore": null,
+      "intHomeScore": "0",
       "intRound": "27",
-      "intAwayScore": null,
+      "intAwayScore": "0",
       "intSpectators": null,
       "strOfficial": "",
       "strTimestamp": "2025-10-05T19:00:00",
@@ -774,7 +774,7 @@
       "strTweet2": "",
       "strTweet3": "",
       "strVideo": "",
-      "strStatus": "Not Started",
+      "strStatus": "1H",
       "strPostponed": "no",
       "strLocked": "unlocked"
     }
@@ -846,9 +846,9 @@
       "strDescriptionEN": "",
       "strHomeTeam": "São Paulo",
       "strAwayTeam": "Palmeiras",
-      "intHomeScore": null,
+      "intHomeScore": "0",
       "intRound": "27",
-      "intAwayScore": null,
+      "intAwayScore": "0",
       "intSpectators": null,
       "strOfficial": "",
       "strTimestamp": "2025-10-05T19:00:00",
@@ -878,7 +878,7 @@
       "strTweet2": "",
       "strTweet3": "",
       "strVideo": "",
-      "strStatus": "Not Started",
+      "strStatus": "1H",
       "strPostponed": "no",
       "strLocked": "unlocked"
     }
@@ -950,9 +950,9 @@
       "strDescriptionEN": "",
       "strHomeTeam": "Vasco da Gama",
       "strAwayTeam": "Vitória",
-      "intHomeScore": null,
+      "intHomeScore": "1",
       "intRound": "27",
-      "intAwayScore": null,
+      "intAwayScore": "0",
       "intSpectators": null,
       "strOfficial": "",
       "strTimestamp": "2025-10-05T19:00:00",
@@ -982,7 +982,7 @@
       "strTweet2": "",
       "strTweet3": "",
       "strVideo": "",
-      "strStatus": "Not Started",
+      "strStatus": "1H",
       "strPostponed": "no",
       "strLocked": "unlocked"
     }
@@ -1002,9 +1002,9 @@
       "strDescriptionEN": "",
       "strHomeTeam": "Vasco da Gama",
       "strAwayTeam": "Vitória",
-      "intHomeScore": null,
+      "intHomeScore": "1",
       "intRound": "27",
-      "intAwayScore": null,
+      "intAwayScore": "0",
       "intSpectators": null,
       "strOfficial": "",
       "strTimestamp": "2025-10-05T19:00:00",
@@ -1034,7 +1034,7 @@
       "strTweet2": "",
       "strTweet3": "",
       "strVideo": "",
-      "strStatus": "Not Started",
+      "strStatus": "1H",
       "strPostponed": "no",
       "strLocked": "unlocked"
     }
