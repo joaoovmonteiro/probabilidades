@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "python main.py --clean",
+  "buildCommand": "python main.py",
   "outputDirectory": ".",
   "installCommand": "pip install -r requirements.txt",
   "builds": [
