@@ -25,10 +25,9 @@ class handler(BaseHTTPRequestHandler):
             try:
                 # Tentar diferentes caminhos para encontrar o arquivo
                 possible_paths = [
-                    'data/web_serie_a.json',
-                    '/var/task/data/web_serie_a.json',
-                    '/vercel/path0/data/web_serie_a.json',
-                    os.path.join(os.getcwd(), 'data', 'web_serie_a.json')
+                    '/var/task/data/web_serie_a.json',  # Vercel Lambda path
+                    'data/web_serie_a.json',            # Relative path
+                    os.path.join(os.getcwd(), 'data', 'web_serie_a.json')  # Absolute path
                 ]
                 
                 data = None
@@ -52,10 +51,9 @@ class handler(BaseHTTPRequestHandler):
             try:
                 # Tentar diferentes caminhos para encontrar o arquivo
                 possible_paths = [
-                    'data/web_serie_b.json',
-                    '/var/task/data/web_serie_b.json',
-                    '/vercel/path0/data/web_serie_b.json',
-                    os.path.join(os.getcwd(), 'data', 'web_serie_b.json')
+                    '/var/task/data/web_serie_b.json',  # Vercel Lambda path
+                    'data/web_serie_b.json',            # Relative path
+                    os.path.join(os.getcwd(), 'data', 'web_serie_b.json')  # Absolute path
                 ]
                 
                 data = None
