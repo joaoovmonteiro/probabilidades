@@ -100,20 +100,10 @@ class SerieBManager {
             return;
         }
 
-        // Para probabilidades, ordenar por probabilidade (maior para menor)
-        // Para classificação, manter ordem da classificação oficial
-        let sortedData;
-        
-        if (type === 'titulo' || type === 'acesso' || type === 'rebaixamento') {
-            // Ordenar por probabilidade (maior para menor)
-            sortedData = Object.entries(data)
-                .map(([time, probabilidade]) => ({ time, probabilidade }))
-                .sort((a, b) => b.probabilidade - a.probabilidade);
-        } else {
-            // Para outros tipos, manter ordem original
-            sortedData = Object.entries(data)
-                .map(([time, probabilidade]) => ({ time, probabilidade }));
-        }
+        // Converter objeto em array e ordenar por probabilidade
+        const sortedData = Object.entries(data)
+            .map(([time, probabilidade]) => ({ time, probabilidade }))
+            .sort((a, b) => b.probabilidade - a.probabilidade);
 
         console.log('Dados ordenados:', sortedData);
 
