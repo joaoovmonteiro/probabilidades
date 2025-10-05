@@ -49,9 +49,9 @@ Thumbs.db
 logs/
 execucao_log.txt
 
-# Data files (opcional - descomente se não quiser subir os dados)
-# data/
-# *.json
+# Data files (arquivos grandes)
+data/resultados_simulacao_*.json
+data/relatorio_ufmg_*.json
 
 # Cache
 .cache/
