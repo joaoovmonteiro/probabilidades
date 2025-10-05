@@ -18,6 +18,24 @@ class DataLoader {
         }
     }
 
+    static async loadData(serie) {
+        try {
+            // Tentar carregar via API primeiro (para Vercel)
+            const apiUrl = `/api/${serie}`;
+            const data = await this.loadJSON(apiUrl);
+            if (data && !data.error) {
+                return data;
+            }
+            
+            // Fallback para arquivo local
+            const fileUrl = `data/web_${serie}.json`;
+            return await this.loadJSON(fileUrl);
+        } catch (error) {
+            console.error(`Erro ao carregar dados da ${serie}:`, error);
+            return null;
+        }
+    }
+
     static formatPercentage(value) {
         if (value === null || value === undefined || isNaN(value)) {
             return '0.0%';

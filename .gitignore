@@ -53,6 +53,9 @@ execucao_log.txt
 data/resultados_simulacao_*.json
 data/relatorio_ufmg_*.json
 
+# Vercel
+.vercel
+
 # Cache
 .cache/
 *.cache
