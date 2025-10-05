@@ -12,6 +12,11 @@ from pathlib import Path
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
+        # Log do path recebido
+        print(f"=== API REQUEST ===")
+        print(f"Path recebido: '{self.path}'")
+        print(f"Tipo do path: {type(self.path)}")
+        
         # Configurar headers CORS
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
@@ -21,7 +26,7 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         
         # Rota para dados da Série A
-        if self.path == '/api/serie-a':
+        if self.path.startswith('/api/serie-a'):
             try:
                 print(f"=== API Série A chamada ===")
                 print(f"Path: {self.path}")
@@ -62,7 +67,7 @@ class handler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({'error': str(e)}).encode())
         
         # Rota para dados da Série B
-        elif self.path == '/api/serie-b':
+        elif self.path.startswith('/api/serie-b'):
             try:
                 print(f"=== API Série B chamada ===")
                 print(f"Path: {self.path}")
@@ -103,7 +108,7 @@ class handler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({'error': str(e)}).encode())
         
         # Rota para debug do sistema de arquivos
-        elif self.path == '/api/debug':
+        elif self.path.startswith('/api/debug'):
             try:
                 debug_info = {
                     'current_directory': os.getcwd(),
@@ -131,7 +136,7 @@ class handler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({'error': str(e)}).encode())
         
         # Rota para status do sistema
-        elif self.path == '/api/status':
+        elif self.path.startswith('/api/status'):
             status = {
                 'status': 'online',
                 'message': 'Sistema de Análise e Simulação - Campeonato Brasileiro 2025',
