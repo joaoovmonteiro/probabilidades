@@ -23,22 +23,82 @@ class handler(BaseHTTPRequestHandler):
         # Rota para dados da Série A
         if self.path == '/api/serie-a':
             try:
-                with open('data/web_serie_a.json', 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                self.wfile.write(json.dumps(data).encode())
-            except FileNotFoundError:
-                self.wfile.write(json.dumps({'error': 'Dados da Série A não encontrados'}).encode())
+                # Tentar diferentes caminhos para encontrar o arquivo
+                possible_paths = [
+                    'data/web_serie_a.json',
+                    '/var/task/data/web_serie_a.json',
+                    '/vercel/path0/data/web_serie_a.json',
+                    os.path.join(os.getcwd(), 'data', 'web_serie_a.json')
+                ]
+                
+                data = None
+                for path in possible_paths:
+                    try:
+                        with open(path, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                        break
+                    except FileNotFoundError:
+                        continue
+                
+                if data:
+                    self.wfile.write(json.dumps(data).encode())
+                else:
+                    self.wfile.write(json.dumps({'error': 'Dados da Série A não encontrados em nenhum caminho'}).encode())
             except Exception as e:
                 self.wfile.write(json.dumps({'error': str(e)}).encode())
         
         # Rota para dados da Série B
         elif self.path == '/api/serie-b':
             try:
-                with open('data/web_serie_b.json', 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                self.wfile.write(json.dumps(data).encode())
-            except FileNotFoundError:
-                self.wfile.write(json.dumps({'error': 'Dados da Série B não encontrados'}).encode())
+                # Tentar diferentes caminhos para encontrar o arquivo
+                possible_paths = [
+                    'data/web_serie_b.json',
+                    '/var/task/data/web_serie_b.json',
+                    '/vercel/path0/data/web_serie_b.json',
+                    os.path.join(os.getcwd(), 'data', 'web_serie_b.json')
+                ]
+                
+                data = None
+                for path in possible_paths:
+                    try:
+                        with open(path, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                        break
+                    except FileNotFoundError:
+                        continue
+                
+                if data:
+                    self.wfile.write(json.dumps(data).encode())
+                else:
+                    self.wfile.write(json.dumps({'error': 'Dados da Série B não encontrados em nenhum caminho'}).encode())
+            except Exception as e:
+                self.wfile.write(json.dumps({'error': str(e)}).encode())
+        
+        # Rota para debug do sistema de arquivos
+        elif self.path == '/api/debug':
+            try:
+                debug_info = {
+                    'current_directory': os.getcwd(),
+                    'files_in_root': [],
+                    'data_directory_exists': False,
+                    'data_files': []
+                }
+                
+                # Listar arquivos no diretório raiz
+                try:
+                    debug_info['files_in_root'] = os.listdir('.')
+                except:
+                    pass
+                
+                # Verificar se pasta data existe
+                if os.path.exists('data'):
+                    debug_info['data_directory_exists'] = True
+                    try:
+                        debug_info['data_files'] = os.listdir('data')
+                    except:
+                        pass
+                
+                self.wfile.write(json.dumps(debug_info, indent=2).encode())
             except Exception as e:
                 self.wfile.write(json.dumps({'error': str(e)}).encode())
         
@@ -51,7 +111,8 @@ class handler(BaseHTTPRequestHandler):
                 'endpoints': [
                     '/api/serie-a',
                     '/api/serie-b',
-                    '/api/status'
+                    '/api/status',
+                    '/api/debug'
                 ]
             }
             self.wfile.write(json.dumps(status).encode())
