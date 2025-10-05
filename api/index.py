@@ -23,6 +23,10 @@ class handler(BaseHTTPRequestHandler):
         # Rota para dados da Série A
         if self.path == '/api/serie-a':
             try:
+                print(f"=== API Série A chamada ===")
+                print(f"Path: {self.path}")
+                print(f"Current directory: {os.getcwd()}")
+                
                 # Tentar diferentes caminhos para encontrar o arquivo
                 possible_paths = [
                     '/var/task/data/web_serie_a.json',  # Vercel Lambda path
@@ -30,25 +34,40 @@ class handler(BaseHTTPRequestHandler):
                     os.path.join(os.getcwd(), 'data', 'web_serie_a.json')  # Absolute path
                 ]
                 
+                print(f"Tentando caminhos: {possible_paths}")
+                
                 data = None
                 for path in possible_paths:
                     try:
+                        print(f"Tentando abrir: {path}")
                         with open(path, 'r', encoding='utf-8') as f:
                             data = json.load(f)
+                        print(f"✅ Sucesso ao carregar: {path}")
                         break
-                    except FileNotFoundError:
+                    except FileNotFoundError as e:
+                        print(f"❌ Arquivo não encontrado: {path}")
+                        continue
+                    except Exception as e:
+                        print(f"❌ Erro ao abrir {path}: {e}")
                         continue
                 
                 if data:
+                    print(f"✅ Dados carregados com sucesso para Série A")
                     self.wfile.write(json.dumps(data).encode())
                 else:
+                    print(f"❌ Nenhum dado encontrado para Série A")
                     self.wfile.write(json.dumps({'error': 'Dados da Série A não encontrados em nenhum caminho'}).encode())
             except Exception as e:
+                print(f"❌ Erro geral na API Série A: {e}")
                 self.wfile.write(json.dumps({'error': str(e)}).encode())
         
         # Rota para dados da Série B
         elif self.path == '/api/serie-b':
             try:
+                print(f"=== API Série B chamada ===")
+                print(f"Path: {self.path}")
+                print(f"Current directory: {os.getcwd()}")
+                
                 # Tentar diferentes caminhos para encontrar o arquivo
                 possible_paths = [
                     '/var/task/data/web_serie_b.json',  # Vercel Lambda path
@@ -56,20 +75,31 @@ class handler(BaseHTTPRequestHandler):
                     os.path.join(os.getcwd(), 'data', 'web_serie_b.json')  # Absolute path
                 ]
                 
+                print(f"Tentando caminhos: {possible_paths}")
+                
                 data = None
                 for path in possible_paths:
                     try:
+                        print(f"Tentando abrir: {path}")
                         with open(path, 'r', encoding='utf-8') as f:
                             data = json.load(f)
+                        print(f"✅ Sucesso ao carregar: {path}")
                         break
-                    except FileNotFoundError:
+                    except FileNotFoundError as e:
+                        print(f"❌ Arquivo não encontrado: {path}")
+                        continue
+                    except Exception as e:
+                        print(f"❌ Erro ao abrir {path}: {e}")
                         continue
                 
                 if data:
+                    print(f"✅ Dados carregados com sucesso para Série B")
                     self.wfile.write(json.dumps(data).encode())
                 else:
+                    print(f"❌ Nenhum dado encontrado para Série B")
                     self.wfile.write(json.dumps({'error': 'Dados da Série B não encontrados em nenhum caminho'}).encode())
             except Exception as e:
+                print(f"❌ Erro geral na API Série B: {e}")
                 self.wfile.write(json.dumps({'error': str(e)}).encode())
         
         # Rota para debug do sistema de arquivos
