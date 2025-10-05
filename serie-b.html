@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Série B 2025 - Análise Estatística</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-arrow-up"></i> Série B 2025</h1>
+            <p>Análise Estatística Completa - Segunda Divisão</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="serie-a.html"><i class="fas fa-crown"></i> Série A</a></li>
+                <li><a href="serie-b.html" class="active"><i class="fas fa-arrow-up"></i> Série B</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Navegação por Abas -->
+        <nav class="tabs-navigation">
+            <div class="container">
+                <div class="tabs-container">
+                    <button class="tab-button active" data-tab="probabilities">
+                        <i class="fas fa-trophy"></i> Probabilidades
+                    </button>
+                    <button class="tab-button" data-tab="classification">
+                        <i class="fas fa-table"></i> Classificação
+                    </button>
+                    <button class="tab-button" data-tab="next-games">
+                        <i class="fas fa-calendar-alt"></i> Próximos Jogos
+                    </button>
+                    <button class="tab-button" data-tab="advanced-stats">
+                        <i class="fas fa-chart-line"></i> Estatísticas Avançadas
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Conteúdo das Abas -->
+        <div class="tab-content">
+            <!-- Aba de Probabilidades -->
+            <div id="probabilities-tab" class="tab-pane active">
+                <!-- Probabilidades de Título -->
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-trophy"></i> Probabilidades de Título</h2>
+                            <div class="table-container">
+                                <table id="titleTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Pos</th>
+                                            <th>Time</th>
+                                            <th>Probabilidade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="titleTableBody">
+                                        <!-- Dados serão carregados via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Acesso à Série A -->
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-arrow-up"></i> Acesso à Série A (Top 4)</h2>
+                            <div class="table-container">
+                                <table id="acessoTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Probabilidade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="acessoTableBody">
+                                        <!-- Dados serão carregados via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Rebaixamento -->
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-arrow-down"></i> Risco de Rebaixamento (Zona de Rebaixamento)</h2>
+                            <div class="table-container">
+                                <table id="rebaixamentoTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Probabilidade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rebaixamentoTableBody">
+                                        <!-- Dados serão carregados via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Aba de Classificação -->
+            <div id="classification-tab" class="tab-pane">
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-table"></i> Classificação Atual</h2>
+                            <div class="table-container">
+                                <table id="classificationTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Pos</th>
+                                            <th>Time</th>
+                                            <th>Pts</th>
+                                            <th>J</th>
+                                            <th>V</th>
+                                            <th>E</th>
+                                            <th>D</th>
+                                            <th>GP</th>
+                                            <th>GC</th>
+                                            <th>SG</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="classificationTableBody">
+                                        <!-- Dados serão carregados via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Estatísticas Gerais -->
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-chart-bar"></i> Estatísticas da Temporada</h2>
+                            <div id="stats-container">
+                                <!-- Dados serão carregados via JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Aba de Próximos Jogos -->
+            <div id="next-games-tab" class="tab-pane">
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-calendar-alt"></i> Próximos Jogos</h2>
+                            <div id="nextGames">
+                                <!-- Dados serão carregados via JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Aba de Estatísticas Avançadas -->
+            <div id="advanced-stats-tab" class="tab-pane">
+                <!-- Performance Casa/Fora -->
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-home"></i> Performance Casa vs Fora</h2>
+                            <div id="home-away-table-container"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Forma dos Times -->
+                <section class="content-section">
+                    <div class="container">
+                        <div class="data-card">
+                            <h2><i class="fas fa-chart-line"></i> Forma dos Times (Últimos 5 Jogos)</h2>
+                            <div id="team-form-container"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Série B 2025</h4>
+                    <p>Análise estatística completa da segunda divisão do Campeonato Brasileiro.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Metodologia</h4>
+                    <p>Análise estatística avançada baseada em dados históricos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Atualização</h4>
+                    <p>Dados atualizados automaticamente após cada rodada.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Análise Brasileirão. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="serie-b.js"></script>
+    <script>
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM carregado, iniciando Série B...');
+            SerieBManager.loadData();
+            
+            // Inicializar sistema de abas
+            initializeTabs();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 Análise Brasileirão 2025 - Séries A e B</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-trophy"></i> Análise Brasileirão 2025</h1>
+            <p>Análise Estatística Avançada - Séries A e B</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="dropdown-container">
+                    <button class="dropdown-btn serie-a-btn">
+                        <i class="fas fa-crown"></i> Série A
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu serie-a-menu">
+                        <a href="serie-a-probabilidades.html"><i class="fas fa-trophy"></i> Probabilidades</a>
+                        <a href="serie-a-classificacao.html"><i class="fas fa-table"></i> Classificação</a>
+                        <a href="serie-a-proximos-jogos.html"><i class="fas fa-calendar-alt"></i> Próximos Jogos</a>
+                        <a href="serie-a-estatisticas.html"><i class="fas fa-chart-line"></i> Estatísticas</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown-container">
+                    <button class="dropdown-btn serie-b-btn">
+                        <i class="fas fa-arrow-up"></i> Série B
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu serie-b-menu">
+                        <a href="serie-b-probabilidades.html"><i class="fas fa-trophy"></i> Probabilidades</a>
+                        <a href="serie-b-classificacao.html"><i class="fas fa-table"></i> Classificação</a>
+                        <a href="serie-b-proximos-jogos.html"><i class="fas fa-calendar-alt"></i> Próximos Jogos</a>
+                        <a href="serie-b-estatisticas.html"><i class="fas fa-chart-line"></i> Estatísticas</a>
+                    </div>
+                </div>
+                
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i> Início
+                </a>
+                
+                <a href="sobre.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i> Sobre
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Análise Estatística Completa</h2>
+                    <p>Probabilidades de título, acesso, rebaixamento e muito mais baseadas em simulações</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="series-section">
+            <div class="container">
+                <h2>Escolha uma Série</h2>
+                <div class="series-grid">
+                    <div class="series-card serie-a">
+                        <div class="series-header">
+                            <h3><i class="fas fa-crown"></i> Série A</h3>
+                            <p>Primeira Divisão</p>
+                        </div>
+                        <div class="series-features">
+                            <ul>
+                                <li><i class="fas fa-trophy"></i> Probabilidades de Título</li>
+                                <li><i class="fas fa-arrow-up"></i> Acesso à Libertadores</li>
+                                <li><i class="fas fa-arrow-down"></i> Risco de Rebaixamento</li>
+                                <li><i class="fas fa-chart-bar"></i> Classificação Atual</li>
+                            </ul>
+                        </div>
+                        <div class="series-cards-grid">
+                            <a href="serie-a-probabilidades.html" class="feature-card">
+                                <i class="fas fa-trophy"></i>
+                                <span>Probabilidades</span>
+                            </a>
+                            <a href="serie-a-classificacao.html" class="feature-card">
+                                <i class="fas fa-table"></i>
+                                <span>Classificação</span>
+                            </a>
+                            <a href="serie-a-proximos-jogos.html" class="feature-card">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Próximos Jogos</span>
+                            </a>
+                            <a href="serie-a-estatisticas.html" class="feature-card">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Estatísticas</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="series-card serie-b">
+                        <div class="series-header">
+                            <h3><i class="fas fa-arrow-up"></i> Série B</h3>
+                            <p>Segunda Divisão</p>
+                        </div>
+                        <div class="series-features">
+                            <ul>
+                                <li><i class="fas fa-trophy"></i> Probabilidades de Título</li>
+                                <li><i class="fas fa-arrow-up"></i> Acesso à Série A</li>
+                                <li><i class="fas fa-arrow-down"></i> Risco de Rebaixamento</li>
+                                <li><i class="fas fa-chart-bar"></i> Classificação Atual</li>
+                            </ul>
+                        </div>
+                        <div class="series-cards-grid">
+                            <a href="serie-b-probabilidades.html" class="feature-card">
+                                <i class="fas fa-trophy"></i>
+                                <span>Probabilidades</span>
+                            </a>
+                            <a href="serie-b-classificacao.html" class="feature-card">
+                                <i class="fas fa-table"></i>
+                                <span>Classificação</span>
+                            </a>
+                            <a href="serie-b-proximos-jogos.html" class="feature-card">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Próximos Jogos</span>
+                            </a>
+                            <a href="serie-b-estatisticas.html" class="feature-card">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Estatísticas</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="methodology-section">
+            <div class="container">
+                <h2>Metodologia</h2>
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <i class="fas fa-database"></i>
+                        <h3>Coleta de Dados</h3>
+                        <p>Busca automática de todos os jogos</p>
+                    </div>
+                    <div class="method-card">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Análise Estatística</h3>
+                        <p>Cálculo de estatísticas e tendências</p>
+                    </div>
+                    <div class="method-card">
+                        <i class="fas fa-random"></i>
+                        <h3>Análise Estatística</h3>
+                        <p>Algoritmos para prever resultados</p>
+                    </div>
+                    <div class="method-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Probabilidades</h3>
+                        <p>Cálculo de probabilidades de título e posições</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Análise Brasileirão 2025</h4>
+                    <p>Sistema de análise estatística para as Séries A e B</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Dados</h4>
+                    <p>Atualizado em tempo real</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Metodologia</h4>
+                    <p>Análise Estatística Avançada</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Análise Brasileirão. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

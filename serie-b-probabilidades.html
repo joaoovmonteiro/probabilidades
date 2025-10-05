@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probabilidades - Série B 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-trophy"></i> Probabilidades - Série B 2025</h1>
+            <p>Análise de Título, Acesso e Rebaixamento</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="serie-b-probabilidades.html" class="active"><i class="fas fa-trophy"></i> Probabilidades</a></li>
+                <li><a href="serie-b-classificacao.html"><i class="fas fa-table"></i> Classificação</a></li>
+                <li><a href="serie-b-proximos-jogos.html"><i class="fas fa-calendar-alt"></i> Próximos Jogos</a></li>
+                <li><a href="serie-b-estatisticas.html"><i class="fas fa-chart-line"></i> Estatísticas</a></li>
+                <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Probabilidades de Título -->
+        <section class="content-section">
+            <div class="container">
+                <div class="data-card">
+                    <h2><i class="fas fa-trophy"></i> Probabilidades de Título</h2>
+                    <div class="table-container">
+                        <table id="titleTable">
+                            <thead>
+                                <tr>
+                                    <th>Pos</th>
+                                    <th>Time</th>
+                                    <th>Probabilidade</th>
+                                </tr>
+                            </thead>
+                            <tbody id="titleTableBody">
+                                <!-- Dados serão carregados via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acesso à Série A -->
+        <section class="content-section">
+            <div class="container">
+                <div class="data-card">
+                    <h2><i class="fas fa-arrow-up"></i> Acesso à Série A (Top 4)</h2>
+                    <div class="table-container">
+                        <table id="acessoTable">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Probabilidade</th>
+                                </tr>
+                            </thead>
+                            <tbody id="acessoTableBody">
+                                <!-- Dados serão carregados via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rebaixamento -->
+        <section class="content-section">
+            <div class="container">
+                <div class="data-card">
+                    <h2><i class="fas fa-arrow-down"></i> Risco de Rebaixamento (Zona de Rebaixamento)</h2>
+                    <div class="table-container">
+                        <table id="rebaixamentoTable">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Probabilidade</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rebaixamentoTableBody">
+                                <!-- Dados serão carregados via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Série B 2025</h4>
+                    <p>Probabilidades baseadas em análise estatística avançada.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Metodologia</h4>
+                    <p>Análise estatística avançada com dados históricos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Atualização</h4>
+                    <p>Dados atualizados automaticamente após cada rodada.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Análise Brasileirão. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="serie-b.js"></script>
+    <script>
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM carregado, iniciando Probabilidades Série B...');
+            SerieBManager.loadData();
+        });
+    </script>
+</body>
+</html>

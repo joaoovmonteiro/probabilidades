@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas - Série B 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-chart-line"></i> Estatísticas - Série B 2025</h1>
+            <p>Análise Avançada e Performance dos Times</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="serie-b-probabilidades.html"><i class="fas fa-trophy"></i> Probabilidades</a></li>
+                <li><a href="serie-b-classificacao.html"><i class="fas fa-table"></i> Classificação</a></li>
+                <li><a href="serie-b-proximos-jogos.html"><i class="fas fa-calendar-alt"></i> Próximos Jogos</a></li>
+                <li><a href="serie-b-estatisticas.html" class="active"><i class="fas fa-chart-line"></i> Estatísticas</a></li>
+                <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Performance Casa/Fora -->
+        <section class="content-section">
+            <div class="container">
+                <div class="data-card">
+                    <h2><i class="fas fa-home"></i> Performance Casa vs Fora</h2>
+                    <div id="home-away-table-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forma dos Times -->
+        <section class="content-section">
+            <div class="container">
+                <div class="data-card">
+                    <h2><i class="fas fa-chart-line"></i> Forma dos Times (Últimos 5 Jogos)</h2>
+                    <div id="team-form-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Série B 2025</h4>
+                    <p>Estatísticas avançadas baseadas em dados históricos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Análise</h4>
+                    <p>Performance em casa, fora e forma recente.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Atualização</h4>
+                    <p>Dados atualizados automaticamente após cada rodada.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Análise Brasileirão. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="serie-b.js"></script>
+    <script>
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM carregado, iniciando Estatísticas Série B...');
+            SerieBManager.loadData();
+        });
+    </script>
+</body>
+</html>
