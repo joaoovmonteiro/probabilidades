@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "python main.py",
+  "buildCommand": "python sistema_completo.py",
   "outputDirectory": ".",
   "installCommand": "pip install -r requirements.txt",
   "builds": [
