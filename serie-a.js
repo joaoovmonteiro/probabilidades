@@ -2,10 +2,15 @@
 class SerieAManager {
     static async loadData() {
         try {
-            console.log('Carregando dados da Série A...');
+            console.log('=== INICIANDO CARREGAMENTO SÉRIE A ===');
+            console.log('DataLoader disponível:', typeof DataLoader);
+            console.log('DataLoader.loadData disponível:', typeof DataLoader.loadData);
             
             // Carregar dados processados para o site
+            console.log('Tentando carregar dados da série-a...');
             const resultsData = await DataLoader.loadData('serie-a');
+            
+            console.log('Resultado do carregamento:', resultsData);
             
             if (!resultsData) {
                 throw new Error('Erro ao carregar dados processados');

@@ -20,16 +20,32 @@ class DataLoader {
 
     static async loadData(serie) {
         try {
+            console.log(`=== DataLoader.loadData para ${serie} ===`);
+            
             // Tentar carregar via API primeiro (para Vercel)
             const apiUrl = `/api/${serie}`;
+            console.log(`Tentando API: ${apiUrl}`);
             const data = await this.loadJSON(apiUrl);
+            console.log(`Resultado da API:`, data);
+            
             if (data && !data.error) {
+                console.log(`✅ Dados carregados via API para ${serie}`);
                 return data;
             }
             
             // Fallback para arquivo local
             const fileUrl = `data/web_${serie}.json`;
-            return await this.loadJSON(fileUrl);
+            console.log(`Fallback para arquivo: ${fileUrl}`);
+            const fileData = await this.loadJSON(fileUrl);
+            console.log(`Resultado do arquivo:`, fileData);
+            
+            if (fileData) {
+                console.log(`✅ Dados carregados via arquivo para ${serie}`);
+                return fileData;
+            }
+            
+            console.log(`❌ Nenhum dado encontrado para ${serie}`);
+            return null;
         } catch (error) {
             console.error(`Erro ao carregar dados da ${serie}:`, error);
             return null;
