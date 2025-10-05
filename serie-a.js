@@ -57,7 +57,7 @@ class SerieAManager {
         // Exibir probabilidades de rebaixamento
         if (data.rebaixamento) {
             console.log('Exibindo probabilidades de rebaixamento:', data.rebaixamento);
-            this.populateTable('relegationTableBody', data.rebaixamento, 'rebaixamento');
+            this.populateTable('rebaixamentoTableBody', data.rebaixamento, 'rebaixamento');
         }
     }
 
@@ -68,14 +68,22 @@ class SerieAManager {
     }
 
     static displayStatistics(data) {
+        console.log('=== EXIBINDO ESTATÍSTICAS SÉRIE A ===');
+        console.log('Dados recebidos:', data);
+        
         if (data.estatisticas) {
-            this.populateStatistics('statisticsContainer', data.estatisticas);
+            console.log('Exibindo estatísticas:', data.estatisticas);
+            this.populateStatistics('home-away-table-container', data.estatisticas);
         }
     }
 
     static displayUpcomingGames(data) {
+        console.log('=== EXIBINDO PRÓXIMOS JOGOS SÉRIE A ===');
+        console.log('Dados recebidos:', data);
+        
         if (data.proximos_jogos) {
-            this.populateUpcomingGames('upcomingGamesContainer', data.proximos_jogos);
+            console.log('Exibindo próximos jogos:', data.proximos_jogos);
+            this.populateUpcomingGames('nextGames', data.proximos_jogos);
         }
     }
 

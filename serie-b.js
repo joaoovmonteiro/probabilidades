@@ -51,13 +51,13 @@ class SerieBManager {
         // Exibir probabilidades de acesso à Série A (libertadores)
         if (data.acesso_serie_a) {
             console.log('Exibindo probabilidades de acesso:', data.acesso_serie_a);
-            this.populateTable('libertadoresTableBody', data.acesso_serie_a, 'acesso');
+            this.populateTable('acessoTableBody', data.acesso_serie_a, 'acesso');
         }
         
         // Exibir probabilidades de rebaixamento
         if (data.rebaixamento) {
             console.log('Exibindo probabilidades de rebaixamento:', data.rebaixamento);
-            this.populateTable('relegationTableBody', data.rebaixamento, 'rebaixamento');
+            this.populateTable('rebaixamentoTableBody', data.rebaixamento, 'rebaixamento');
         }
     }
 
@@ -68,14 +68,22 @@ class SerieBManager {
     }
 
     static displayStatistics(data) {
+        console.log('=== EXIBINDO ESTATÍSTICAS SÉRIE B ===');
+        console.log('Dados recebidos:', data);
+        
         if (data.estatisticas) {
-            this.populateStatistics('statisticsContainer', data.estatisticas);
+            console.log('Exibindo estatísticas:', data.estatisticas);
+            this.populateStatistics('home-away-table-container', data.estatisticas);
         }
     }
 
     static displayUpcomingGames(data) {
+        console.log('=== EXIBINDO PRÓXIMOS JOGOS SÉRIE B ===');
+        console.log('Dados recebidos:', data);
+        
         if (data.proximos_jogos) {
-            this.populateUpcomingGames('upcomingGamesContainer', data.proximos_jogos);
+            console.log('Exibindo próximos jogos:', data.proximos_jogos);
+            this.populateUpcomingGames('nextGames', data.proximos_jogos);
         }
     }
 
