@@ -39,18 +39,24 @@ class SerieBManager {
     }
 
     static displayProbabilities(data) {
+        console.log('=== EXIBINDO PROBABILIDADES SÉRIE B ===');
+        console.log('Dados recebidos:', data);
+        
         // Exibir probabilidades de título
         if (data.titulo) {
+            console.log('Exibindo probabilidades de título:', data.titulo);
             this.populateTable('titleTableBody', data.titulo, 'titulo');
         }
         
-        // Exibir probabilidades de Libertadores
-        if (data.libertadores) {
-            this.populateTable('libertadoresTableBody', data.libertadores, 'libertadores');
+        // Exibir probabilidades de acesso à Série A (libertadores)
+        if (data.acesso_serie_a) {
+            console.log('Exibindo probabilidades de acesso:', data.acesso_serie_a);
+            this.populateTable('libertadoresTableBody', data.acesso_serie_a, 'acesso');
         }
         
         // Exibir probabilidades de rebaixamento
         if (data.rebaixamento) {
+            console.log('Exibindo probabilidades de rebaixamento:', data.rebaixamento);
             this.populateTable('relegationTableBody', data.rebaixamento, 'rebaixamento');
         }
     }
@@ -74,13 +80,24 @@ class SerieBManager {
     }
 
     static populateTable(tableBodyId, data, type) {
+        console.log(`=== POPULANDO TABELA ${tableBodyId} ===`);
+        console.log('Tipo:', type);
+        console.log('Dados:', data);
+        
         const tableBody = document.getElementById(tableBodyId);
-        if (!tableBody) return;
+        console.log('Elemento encontrado:', tableBody);
+        
+        if (!tableBody) {
+            console.log(`❌ Elemento ${tableBodyId} não encontrado`);
+            return;
+        }
 
         // Converter objeto em array e ordenar por probabilidade
         const sortedData = Object.entries(data)
             .map(([time, probabilidade]) => ({ time, probabilidade }))
             .sort((a, b) => b.probabilidade - a.probabilidade);
+
+        console.log('Dados ordenados:', sortedData);
 
         tableBody.innerHTML = '';
         
@@ -101,6 +118,8 @@ class SerieBManager {
             
             tableBody.appendChild(row);
         });
+        
+        console.log(`✅ Tabela ${tableBodyId} populada com ${sortedData.length} itens`);
     }
 
     static populateClassificationTable(tableBodyId, classificacao) {

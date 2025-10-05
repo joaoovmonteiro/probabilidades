@@ -39,18 +39,24 @@ class SerieAManager {
     }
 
     static displayProbabilities(data) {
+        console.log('=== EXIBINDO PROBABILIDADES SÉRIE A ===');
+        console.log('Dados recebidos:', data);
+        
         // Exibir probabilidades de título
         if (data.titulo) {
+            console.log('Exibindo probabilidades de título:', data.titulo);
             this.populateTable('titleTableBody', data.titulo, 'titulo');
         }
         
         // Exibir probabilidades de Libertadores
         if (data.libertadores) {
+            console.log('Exibindo probabilidades de Libertadores:', data.libertadores);
             this.populateTable('libertadoresTableBody', data.libertadores, 'libertadores');
         }
         
         // Exibir probabilidades de rebaixamento
         if (data.rebaixamento) {
+            console.log('Exibindo probabilidades de rebaixamento:', data.rebaixamento);
             this.populateTable('relegationTableBody', data.rebaixamento, 'rebaixamento');
         }
     }
